@@ -1,0 +1,4 @@
+async function loadComponent(targetId,path){const el=document.getElementById(targetId);if(!el)return;const res=await fetch(path);el.innerHTML=await res.text();}
+const reveal=()=>{const els=document.querySelectorAll("[data-reveal]");const y=window.scrollY+window.innerHeight*.9;els.forEach(el=>{if(el.getBoundingClientRect().top+window.scrollY<y){el.style.opacity=1;el.style.transform="translateY(0px)";}})};
+window.addEventListener("scroll",reveal);window.addEventListener("load",reveal);
+document.addEventListener("DOMContentLoaded",()=>{loadComponent("site-header","/components/header.html");loadComponent("site-footer","/components/footer.html");});
